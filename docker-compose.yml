@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: rfq_auction
+      POSTGRES_USER: rfq_user
+      POSTGRES_PASSWORD: rfq_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - rfq_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rfq_user -d rfq_auction"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  rfq_postgres_data:
