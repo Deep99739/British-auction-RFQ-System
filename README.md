@@ -34,9 +34,6 @@ backend/
 frontend/
   app/                     pages, components, styles and API client
   src/                     React entry point and lightweight routing
-docs/
-  HIGH_LEVEL_DESIGN.md
-  DATABASE_SCHEMA.md
 ```
 
 ## Run locally
@@ -121,8 +118,3 @@ cd frontend && npm test
 The deployed flow was verified end to end: loading the repository, opening an
 auction, submitting a quotation, persisting it, recalculating rank and showing
 the resulting activity.
-
-## Design documents
-
-- [High-level design](docs/HIGH_LEVEL_DESIGN.md)
-- [Database schema](docs/DATABASE_SCHEMA.md)
