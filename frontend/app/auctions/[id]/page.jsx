@@ -123,7 +123,9 @@ export default function AuctionDetailsPage() {
 
     socket.on("connect", () => {
       setConnectionState("Live");
-      socket.emit("auction:join", { auctionId });
+      socket.emit("auction:join", { auctionId }, () => {
+        loadAuction();
+      });
     });
     socket.on("disconnect", () => setConnectionState("Reconnecting"));
     socket.on("connect_error", () => setConnectionState("Offline"));
